@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --royal-green: #064E3B;
+  --turquoise: #2DD4BF;
+  --pale-gold: #FDE047;
+  --medical-gray: #F1F5F9;
+}
+
+body {
+  @apply bg-tech-gray text-slate-800 font-sans antialiased overflow-x-hidden;
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-glass;
+  }
+
+  .btn-royal {
+    @apply bg-gradient-to-br from-[#064E3B] to-[#10B981] text-white px-8 py-3 rounded-2xl font-bold transition-all 
+           hover:shadow-xl hover:shadow-emerald-500/20 active:scale-95 flex items-center justify-center gap-2 border border-white/10;
+  }
+
+  .btn-outline {
+    @apply border-2 border-royal-dark text-royal-dark px-8 py-3 rounded-2xl font-bold
+           hover:bg-royal-dark hover:text-white transition-all active:scale-95;
+  }
+
+  .input-field {
+    @apply w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none
+           focus:border-tech-turquoise focus:ring-4 focus:ring-tech-turquoise/10 transition-all;
+  }
+
+  .card-premium {
+    @apply bg-white rounded-3xl p-8 border border-slate-100 shadow-premium hover:border-tech-turquoise/30 transition-all;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-royal-dark to-tech-turquoise;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-tech-gray;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400;
+}

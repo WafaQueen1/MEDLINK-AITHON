@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@theme {
+  /* Royal Tech Core Palette */
+  --color-royal-dark: #0A0A0B;
+  --color-tech-turquoise: #2DD4BF;
+  --color-royal-green: #064E3B;
+  --color-solar-gold: #FDE047;
+  --color-tech-gray: #F1F5F9;
+  
+  /* Additional UI Tokens */
+  --color-glass-white: rgba(255, 255, 255, 0.7);
+  --color-glass-border: rgba(226, 232, 240, 0.6);
+  
+  /* Radii */
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-4xl: 32px;
+
+  /* Shadows */
+  --shadow-premium: 0 20px 25px -5px rgba(226, 232, 240, 0.5);
+  --shadow-turquoise: 0 10px 15px -3px rgba(45, 212, 191, 0.3);
+  --shadow-green: 0 10px 15px -3px rgba(6, 78, 59, 0.3);
+  
+  /* Animations */
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-tech-gray text-slate-900 font-sans antialiased overflow-x-hidden;
+    background-image: radial-gradient(at top left, #EEF2FF 0%, transparent 50%),
+                      radial-gradient(at bottom right, #ECFDF5 0%, transparent 50%);
+  }
+
+  /* Dark Mode Support */
+  .dark body {
+    @apply bg-royal-dark text-slate-200;
+    background-image: radial-gradient(at top left, rgba(6, 78, 59, 0.1) 0%, transparent 50%),
+                      radial-gradient(at bottom right, rgba(45, 212, 191, 0.05) 0%, transparent 50%);
+  }
+}
+
+@layer components {
+  /* High-Fidelity Components */
+  
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-slate-200/60 shadow-premium rounded-2xl;
+  }
+  
+  .dark .glass {
+    @apply bg-white/5 backdrop-blur-xl border-white/10 shadow-none;
+  }
+
+  .btn-royal {
+    @apply bg-gradient-to-br from-royal-green to-[#10B981] text-white px-8 py-3 rounded-2xl font-black uppercase tracking-widest transition-all 
+           hover:shadow-xl hover:shadow-tech-turquoise/20 active:scale-95 flex items-center justify-center gap-2 border border-white/10;
+  }
+
+  .btn-outline {
+    @apply border-2 border-royal-dark text-royal-dark px-8 py-3 rounded-2xl font-black uppercase tracking-widest
+           hover:bg-royal-dark hover:text-white transition-all active:scale-95;
+  }
+  
+  .dark .btn-outline {
+    @apply border-white/20 text-white hover:bg-white/10;
+  }
+
+  .input-field {
+    @apply w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none text-slate-900
+           focus:border-tech-turquoise focus:ring-4 focus:ring-tech-turquoise/10 transition-all font-medium;
+  }
+  
+  .dark .input-field {
+    @apply bg-white/5 border-white/10 text-white placeholder:text-white/20;
+  }
+
+  .card-premium {
+    @apply bg-white rounded-3xl p-8 border border-slate-100 shadow-premium hover:border-tech-turquoise/30 transition-all;
+  }
+  
+  .dark .card-premium {
+    @apply bg-white/5 border-white/5 shadow-none hover:border-tech-turquoise/20;
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-royal-dark to-tech-turquoise;
+  }
+  
+  .dark .gradient-text {
+    @apply from-white to-tech-turquoise;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-tech-gray;
+}
+.dark ::-webkit-scrollbar-track {
+  @apply bg-royal-dark;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400;
+}
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-white/10 hover:bg-white/20;
+}
