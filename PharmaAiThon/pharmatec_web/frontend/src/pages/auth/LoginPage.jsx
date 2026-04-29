@@ -119,7 +119,10 @@ export const LoginPage = () => {
             {roles.map((r) => (
               <button
                 key={r.id}
-                onClick={() => setRole(r.id)}
+                onClick={() => {
+                  setRole(r.id);
+                  setEmail(`${r.id}@pharmatec.com`);
+                }}
                 className={`relative p-5 rounded-[1.2rem] transition-all duration-500 group ${role === r.id ? 'text-white' : 'text-slate-400 hover:text-royal-dark'}`}
               >
                 {role === r.id && (

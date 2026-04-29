@@ -16,7 +16,7 @@ const ProtectedRoute = ({ children, role }) => {
 
   if (loading) {
     return (
-      <div className="h-screen flex flex-col items-center justify-center bg-royal-dark text-tech-turquoise font-black tracking-[0.5em] animate-pulse">
+      <div className="h-screen flex flex-col items-center justify-center bg-royal-dark text-tech-turquoise font-semibold tracking-widest">
         <div className="w-16 h-16 border-4 border-tech-turquoise border-t-transparent rounded-full animate-spin mb-8" />
         MEDLINK INITIALIZING...
       </div>
@@ -43,12 +43,14 @@ const ProtectedRoute = ({ children, role }) => {
 
 export default function App() {
   return (
-    <>
+    <div className="min-h-screen">
       <Routes>
+        {/* Public Routes */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        
+
+        {/* Protected Routes */}
         <Route
           path="/doctor"
           element={
@@ -90,14 +92,37 @@ export default function App() {
           }
         />
 
-        {/* Shared routes */}
-        <Route path="/activity" element={<ProtectedRoute><div className="pl-64 p-10 font-bold text-slate-300">Activity Module - Coming Soon</div></ProtectedRoute>} />
-        <Route path="/settings" element={<ProtectedRoute><div className="pl-64 p-10 font-bold text-slate-300">System Settings - Coming Soon</div></ProtectedRoute>} />
-        
-        {/* Root redirect */}
+        {/* Coming Soon Pages */}
+        <Route
+          path="/activity"
+          element={
+            <ProtectedRoute>
+              <div className="pl-64 p-10 text-center">
+                <h1 className="text-3xl font-bold text-slate-400">Activity Module</h1>
+                <p className="text-slate-500 mt-4">Coming Soon...</p>
+              </div>
+            </ProtectedRoute>
+          }
+        />
+
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <div className="pl-64 p-10 text-center">
+                <h1 className="text-3xl font-bold text-slate-400">System Settings</h1>
+                <p className="text-slate-500 mt-4">Coming Soon...</p>
+              </div>
+            </ProtectedRoute>
+          }
+        />
+
+        {/* Redirect */}
         <Route path="/dashboard" element={<Navigate to="/" replace />} />
       </Routes>
+
+      {/* Floating Dark Mode Toggle */}
       <DarkModeToggle />
-    </>
+    </div>
   );
 }
