@@ -24,7 +24,7 @@ const LandingPage = () => {
 
       {/* 🧭 Navigation */}
       <nav className="fixed w-full z-50 px-6 py-4">
-        <div className="max-w-7xl mx-auto glass dark:bg-white/5 backdrop-blur-2xl border-white/20 dark:border-white/5 px-8 py-4 rounded-[2rem] flex justify-between items-center shadow-premium">
+        <div className="max-w-7xl mx-auto bg-white/90 dark:bg-royal-green/95 backdrop-blur-2xl border border-slate-200 dark:border-royal-green/50 px-8 py-4 rounded-[2rem] flex justify-between items-center shadow-xl dark:shadow-2xl">
           <div className="flex items-center gap-3 group cursor-pointer">
             <motion.div 
               whileHover={{ rotate: 360 }}
@@ -34,21 +34,21 @@ const LandingPage = () => {
               <HeartPulse size={24} className="animate-pulse" />
             </motion.div>
             <span className="text-2xl font-black tracking-tighter text-royal-dark dark:text-white uppercase">
-              MED<span className="text-tech-turquoise">LINK</span>
+              MED<span className="text-tech-turquoise dark:text-pale-gold">LINK</span>
             </span>
           </div>
           
-          <div className="hidden lg:flex gap-10 text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">
-            <a href="#ecosystem" className="hover:text-tech-turquoise transition-colors">Ecosystem</a>
-            <a href="#infrastructure" className="hover:text-tech-turquoise transition-colors">Infrastructure</a>
-            <a href="#security" className="hover:text-tech-turquoise transition-colors">Security</a>
+          <div className="hidden lg:flex gap-10 text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 dark:text-white/70">
+            <a href="#ecosystem" className="hover:text-tech-turquoise dark:hover:text-white transition-colors">Ecosystem</a>
+            <a href="#infrastructure" className="hover:text-tech-turquoise dark:hover:text-white transition-colors">Infrastructure</a>
+            <a href="#security" className="hover:text-tech-turquoise dark:hover:text-white transition-colors">Security</a>
           </div>
 
           <div className="flex items-center gap-4">
-            <Link to="/login" className="hidden sm:block text-[10px] font-black uppercase tracking-widest text-royal-dark dark:text-white hover:text-tech-turquoise transition-colors mr-4">
+            <Link to="/login" className="hidden sm:block text-[10px] font-black uppercase tracking-widest text-royal-dark dark:text-white hover:text-tech-turquoise dark:hover:text-pale-gold transition-colors mr-4">
               Access Terminal
             </Link>
-            <Link to="/signup" className="btn-royal text-xs px-6 py-3">
+            <Link to="/signup" className="btn-royal text-xs px-6 py-3 dark:border-white/20 dark:shadow-xl dark:shadow-black/20">
               Join Network <ArrowRight size={14} />
             </Link>
           </div>

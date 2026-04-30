@@ -142,7 +142,7 @@ const PharmacistDashboard = () => {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-4 px-6 py-4 rounded-2xl transition-all ${activeTab === tab.id ? 'bg-tech-turquoise text-royal-dark font-black shadow-lg shadow-tech-turquoise/20' : 'hover:bg-white/5 text-slate-400 font-bold'}`}
+                className={`flex items-center gap-4 px-6 py-4 rounded-2xl transition-all ${activeTab === tab.id ? 'bg-tech-turquoise text-royal-dark font-black shadow-lg shadow-tech-turquoise/20' : 'hover:bg-slate-50 dark:hover:bg-white/5 text-slate-500 dark:text-slate-300 font-bold hover:text-royal-dark dark:hover:text-white'}`}
               >
                 {tab.icon} {tab.label}
               </button>
