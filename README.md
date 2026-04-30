@@ -119,7 +119,6 @@ To differentiate MEDLINK from standard clinical tools, we implemented a custom d
 
 ### 🔄 In Progress / Future Roadmap
 *   **Real-time Sockets:** Currently using Polling; planned upgrade to Socket.io for instant updates.
-*   **Mobile App:** The current web app is responsive, but a native React Native version is planned.
 *   **GPS Integration:** Currently using static coordinates; plans to integrate live user geolocation.
 
 ---
