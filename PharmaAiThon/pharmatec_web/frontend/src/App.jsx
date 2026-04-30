@@ -2,13 +2,14 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import { LoginPage } from './pages/auth/LoginPage';
 import { SignupPage } from './pages/auth/SignupPage';
-import { DoctorDashboard } from './pages/doctor/DoctorDashboard';
+import DoctorDashboard from './pages/doctor/DoctorDashboard';
 import PharmacistDashboard from './pages/pharmacist/PharmacistDashboard';
 import PatientDashboard from './pages/patient/PatientDashboard';
 import SupplierDashboard from './pages/supplier/SupplierDashboard';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import { useAuth } from './context/AuthContext';
 import MainLayout from './components/MainLayout';
+import Sidebar from './components/Sidebar';
 import { DarkModeToggle } from './components/DarkModeToggle';
 
 const ProtectedRoute = ({ children, role }) => {
@@ -92,26 +93,20 @@ export default function App() {
           }
         />
 
-        {/* Coming Soon Pages */}
         <Route
-          path="/activity"
+          path="/map"
           element={
             <ProtectedRoute>
-              <div className="pl-64 p-10 text-center">
-                <h1 className="text-3xl font-bold text-slate-400">Activity Module</h1>
-                <p className="text-slate-500 mt-4">Coming Soon...</p>
-              </div>
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/settings"
-          element={
-            <ProtectedRoute>
-              <div className="pl-64 p-10 text-center">
-                <h1 className="text-3xl font-bold text-slate-400">System Settings</h1>
-                <p className="text-slate-500 mt-4">Coming Soon...</p>
+              <div className="flex">
+                <Sidebar />
+                <div className="flex-1 p-10 text-center ml-64">
+                  <h1 className="text-3xl font-black text-royal-dark dark:text-white uppercase tracking-tighter">Pharmacy Locator Grid</h1>
+                  <p className="text-slate-500 mt-4 font-bold uppercase text-xs tracking-widest">Accessing regional pharmacy nodes...</p>
+                  {/* For demo, we can just show a big map here */}
+                  <div className="mt-12 w-full max-w-5xl mx-auto aspect-video bg-slate-100 dark:bg-white/5 rounded-[3rem] border border-slate-200 dark:border-white/10 flex items-center justify-center">
+                    <p className="text-slate-400 font-black uppercase tracking-[0.3em]">Interactive Map Rendering...</p>
+                  </div>
+                </div>
               </div>
             </ProtectedRoute>
           }

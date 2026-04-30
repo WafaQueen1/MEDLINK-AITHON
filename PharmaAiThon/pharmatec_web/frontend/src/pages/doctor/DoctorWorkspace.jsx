@@ -184,7 +184,7 @@ const DoctorWorkspace = () => {
                             <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">{med.genericName} • {med.type}</p>
                           </div>
                           {med.isRupture ? (
-                            <span className="text-[10px] bg-tech-gold/20 text-royal-dark px-3 py-1.5 rounded-full font-black uppercase tracking-widest">Rupture</span>
+                            <span className="text-[10px] bg-tech-gold/20 text-royal-dark px-3 py-1.5 rounded-full font-black uppercase tracking-widest">Out of Stock</span>
                           ) : (
                             <ChevronRight size={18} className="text-slate-200 group-hover/item:translate-x-1 group-hover/item:text-tech-turquoise transition-all" />
                           )}
@@ -280,7 +280,7 @@ const DoctorWorkspace = () => {
 
             <div className="card-premium p-8">
               <h4 className="font-black text-royal-dark uppercase tracking-tighter mb-4">Nearby Inventory</h4>
-              <p className="text-xs text-slate-400 font-bold uppercase tracking-widest leading-relaxed mb-6">Real-time check for Rupture medicines in Algiers network.</p>
+              <p className="text-xs text-slate-400 font-bold uppercase tracking-widest leading-relaxed mb-6">Real-time check for Out of Stock medicines in Algiers network.</p>
               <div className="flex items-center gap-4 text-royal-dark bg-tech-gray p-5 rounded-2xl border border-slate-100 hover:border-tech-turquoise transition-all cursor-pointer">
                 <Search size={20} />
                 <span className="text-[10px] font-black tracking-[0.2em] uppercase">Analyze Local Stock</span>

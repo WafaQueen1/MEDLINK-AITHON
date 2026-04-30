@@ -5,6 +5,8 @@ import pharmacistRoutes from './pharmacistRoutes.js';
 import supplierRoutes from './supplierRoutes.js';
 import adminRoutes from './adminRoutes.js';
 import publicRoutes from './publicRoutes.js';
+import promotionRoutes from './promotionRoutes.js';
+import patientRoutes from './patientRoutes.js';
 import { healthCheck } from '../controllers/healthController.js';
 
 const router = Router();
@@ -16,5 +18,7 @@ router.use('/pharmacist', pharmacistRoutes);
 router.use('/supplier', supplierRoutes);
 router.use('/admin', adminRoutes);
 router.use('/public', publicRoutes);
+router.use('/promotions', promotionRoutes);
+router.use('/patient', patientRoutes);
 
 export default router;

@@ -42,6 +42,7 @@ CREATE TABLE IF NOT EXISTS pharmacies (
   pharmacy_address TEXT NOT NULL,
   latitude NUMERIC(9, 6),
   longitude NUMERIC(9, 6),
+  rating DECIMAL(3, 2) DEFAULT 0.00,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
@@ -78,6 +79,7 @@ CREATE TABLE IF NOT EXISTS patient_profiles (
 
 CREATE TABLE IF NOT EXISTS patients (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  user_id UUID REFERENCES users(id) ON DELETE SET NULL,
   doctor_id UUID NOT NULL REFERENCES doctors(id) ON DELETE CASCADE,
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
@@ -137,3 +139,32 @@ CREATE INDEX IF NOT EXISTS idx_prescriptions_patient_id ON prescriptions(patient
 CREATE INDEX IF NOT EXISTS idx_prescription_items_prescription_id ON prescription_items(prescription_id);
 CREATE INDEX IF NOT EXISTS idx_pharmacy_medicines_pharmacy_id ON pharmacy_medicines(pharmacy_id);
 CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
+
+CREATE TABLE IF NOT EXISTS promotions (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  pharmacist_id UUID REFERENCES users(id) ON DELETE CASCADE NOT NULL,
+  title VARCHAR(255) NOT NULL,
+  description TEXT NOT NULL,
+  type VARCHAR(50) DEFAULT 'Discount',
+  medicine_names TEXT,
+  discount_percentage INTEGER DEFAULT 0,
+  special_price DECIMAL(10,2),
+  expiry_date DATE,
+  is_active BOOLEAN DEFAULT true,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS idx_active_promotions ON promotions(is_active, expiry_date);
+CREATE INDEX IF NOT EXISTS idx_pharmacist_promotions ON promotions(pharmacist_id);
+
+CREATE TABLE IF NOT EXISTS prescription_requests (
+    id SERIAL PRIMARY KEY,
+    prescription_id UUID REFERENCES prescriptions(id),
+    patient_id UUID REFERENCES patients(id),
+    pharmacy_id UUID REFERENCES pharmacies(id),
+    status VARCHAR(50) DEFAULT 'SENT', 
+    standard_price DECIMAL(10, 2) DEFAULT 0.00,
+    chifa_coverage_type VARCHAR(10),
+    final_patient_pay DECIMAL(10, 2) DEFAULT 0.00,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

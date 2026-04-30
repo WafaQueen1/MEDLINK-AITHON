@@ -156,3 +156,25 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return R * c;
 }
+
+/**
+ * Get all available suppliers
+ */
+export const getSuppliers = asyncHandler(async (req, res) => {
+  const result = await pool.query(`
+    SELECT 
+      s.id,
+      s.company_name,
+      s.company_address,
+      s.wilaya,
+      u.phone_number
+    FROM suppliers s
+    JOIN users u ON u.id = s.user_id
+    ORDER BY s.company_name
+  `);
+
+  res.json({
+    success: true,
+    suppliers: result.rows,
+  });
+});

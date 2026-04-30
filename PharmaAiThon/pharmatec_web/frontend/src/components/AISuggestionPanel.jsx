@@ -19,25 +19,25 @@ const AISuggestionPanel = ({ onAddMedicine }) => {
           id: 1,
           brand: "Norvasc",
           generic: "Amlodipine 5 mg",
-          dosage: "1 comprimé par jour",
+          dosage: "1 tablet per day",
           rupture: false,
-          note: "Médicament de première intention pour l'hypertension en Algérie"
+          note: "First-line medication for hypertension in Algeria"
         },
         {
           id: 2,
           brand: "Glucophage",
-          generic: "Metformine 500 mg",
-          dosage: "2 fois par jour",
+          generic: "Metformin 500 mg",
+          dosage: "2 times per day",
           rupture: true,
-          note: "Rupture fréquente ces dernières semaines"
+          note: "Frequent shortage in recent weeks"
         },
         {
           id: 3,
           brand: "Cozaar",
           generic: "Losartan 50 mg",
-          dosage: "1 comprimé par jour",
+          dosage: "1 tablet per day",
           rupture: false,
-          note: "Alternative excellente en cas d'intolérance"
+          note: "Excellent alternative for intolerance cases"
         }
       ]);
       setLoading(false);
@@ -52,9 +52,9 @@ const AISuggestionPanel = ({ onAddMedicine }) => {
           <Sparkles className="w-7 h-7 text-white" />
         </div>
         <div>
-          <h2 className="text-2xl font-semibold gradient-text">Assistant IA Clinique</h2>
+          <h2 className="text-2xl font-semibold gradient-text">Clinical AI Assistant</h2>
           <p className="text-slate-500 dark:text-slate-400">
-            Décrivez le diagnostic du patient
+            Describe the patient's diagnosis
           </p>
         </div>
       </div>
@@ -66,7 +66,7 @@ const AISuggestionPanel = ({ onAddMedicine }) => {
           value={diagnosis}
           onChange={(e) => setDiagnosis(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && getSuggestions()}
-          placeholder="Ex: Hypertension artérielle, Diabète type 2, Infection urinaire..."
+          placeholder="Ex: Hypertension, Type 2 Diabetes, Urinary Tract Infection..."
           className="input-field flex-1 text-lg py-4"
         />
         <button
@@ -77,10 +77,10 @@ const AISuggestionPanel = ({ onAddMedicine }) => {
           {loading ? (
             <span className="flex items-center gap-2">
               <Loader2 className="w-5 h-5 animate-spin" />
-              Analyse...
+              Analyzing...
             </span>
           ) : (
-            'Sugérer'
+            'Suggest'
           )}
         </button>
       </div>
@@ -89,7 +89,7 @@ const AISuggestionPanel = ({ onAddMedicine }) => {
       {suggestions.length > 0 && (
         <div className="space-y-5">
           <h3 className="text-lg font-medium text-slate-700 dark:text-slate-300 mb-4">
-            Médicaments recommandés pour ce cas
+            Recommended medications for this case
           </h3>
 
           {suggestions.map((med) => (
@@ -103,7 +103,7 @@ const AISuggestionPanel = ({ onAddMedicine }) => {
                   {med.rupture && (
                     <span className="flex items-center gap-1.5 text-xs font-medium bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 px-4 py-1 rounded-2xl">
                       <AlertTriangle className="w-4 h-4" />
-                      Rupture possible
+                      Possible Shortage
                     </span>
                   )}
                 </div>
@@ -122,7 +122,7 @@ const AISuggestionPanel = ({ onAddMedicine }) => {
                 className="btn-royal flex items-center gap-3 px-8 py-3 text-base group-hover:scale-105 transition-transform"
               >
                 <Plus className="w-5 h-5" />
-                Ajouter à l’ordonnance
+                Add to Prescription
               </button>
             </div>
           ))}

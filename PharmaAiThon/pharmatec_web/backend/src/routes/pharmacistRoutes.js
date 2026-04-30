@@ -7,6 +7,9 @@ import {
   listMedicines,
   removeMedicine,
   listPrescriptions,
+  verifyChifa,
+  createOrder,
+  getRequests
 } from '../controllers/pharmacistController.js';
 import { authorizeRoles, protect } from '../middleware/authMiddleware.js';
 
@@ -21,5 +24,9 @@ router.post('/medicines', addMedicine);
 router.put('/medicines/:medicineId', editMedicine);
 router.delete('/medicines/:medicineId', removeMedicine);
 router.get('/prescriptions', listPrescriptions);
+router.get('/requests', getRequests);
+
+router.post('/verify-chifa/:request_id', verifyChifa);
+router.post('/request-stock', createOrder);
 
 export default router;

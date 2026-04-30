@@ -23,9 +23,9 @@ const Sidebar = () => {
 
   const menuItems = [
     { icon: <Home size={20} />, label: 'Dashboard', path: getDashboardPath() },
-    { icon: <Activity size={20} />, label: 'Live Stream', path: '/activity' },
-    { icon: <Map size={20} />, label: 'Wilaya Map', path: '/map' },
-    { icon: <Settings size={20} />, label: 'Settings', path: '/settings' },
+    ...(user?.role === 'patient' || user?.role === 'pharmacist' ? [
+      { icon: <Map size={20} />, label: 'Pharmacy Map', path: '/map' }
+    ] : []),
   ];
 
   return (
