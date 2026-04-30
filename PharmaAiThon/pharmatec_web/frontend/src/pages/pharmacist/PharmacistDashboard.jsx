@@ -119,16 +119,16 @@ const PharmacistDashboard = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] flex overflow-hidden font-sans transition-all duration-500">
+    <div className="min-h-screen bg-tech-gray dark:bg-royal-dark flex overflow-hidden font-sans transition-all duration-500">
       {/* Sidebar */}
-      <aside className="w-96 bg-royal-dark text-white flex flex-col p-10 relative z-20 shadow-2xl">
+      <aside className="w-96 bg-white dark:bg-royal-dark text-royal-dark dark:text-white flex flex-col p-10 relative z-20 shadow-2xl border-r border-slate-200 dark:border-white/5">
         <div className="flex items-center gap-4 mb-16 relative z-10">
           <div className="w-12 h-12 bg-tech-turquoise rounded-2xl flex items-center justify-center text-royal-dark shadow-2xl">
             <HeartPulse size={28} />
           </div>
           <div>
-            <span className="text-3xl font-black tracking-tighter block leading-none">MEDLINK</span>
-            <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Dispensing Terminal v3.0</span>
+            <span className="text-3xl font-black tracking-tighter block leading-none text-royal-dark dark:text-white">MEDLINK</span>
+            <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-1">Dispensing Terminal v3.0</span>
           </div>
         </div>
 
@@ -178,16 +178,16 @@ const PharmacistDashboard = () => {
       </aside>
 
       {/* Main Workspace */}
-      <main className="flex-1 overflow-y-auto p-16 custom-scrollbar">
+      <main className="flex-1 overflow-y-auto p-16 custom-scrollbar bg-tech-gray dark:bg-royal-dark transition-colors duration-300">
         <header className="flex justify-between items-start mb-16">
           <div>
             <div className="flex items-center gap-3 mb-4"><span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">Operations Center</span><div className="w-1.5 h-1.5 rounded-full bg-tech-turquoise" /></div>
-            <h1 className="text-5xl font-black text-royal-dark tracking-tighter uppercase">{activeTab.replace('-', ' ')}</h1>
+            <h1 className="text-5xl font-black text-royal-dark dark:text-white tracking-tighter uppercase">{activeTab.replace('-', ' ')}</h1>
           </div>
           <div className="flex gap-4">
-             <div className="p-4 bg-white border border-slate-100 rounded-2xl shadow-sm flex items-center gap-4">
+             <div className="p-4 bg-white dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-2xl shadow-sm flex items-center gap-4">
                 <Bell size={20} className="text-slate-300" />
-                <div className="w-10 h-10 bg-royal-dark text-tech-turquoise rounded-xl flex items-center justify-center font-black text-xs">AI</div>
+                <div className="w-10 h-10 bg-royal-dark dark:bg-white/10 text-tech-turquoise rounded-xl flex items-center justify-center font-black text-xs border border-white/5">AI</div>
              </div>
           </div>
         </header>

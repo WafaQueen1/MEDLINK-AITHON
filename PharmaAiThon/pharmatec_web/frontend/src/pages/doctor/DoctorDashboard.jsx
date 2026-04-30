@@ -136,7 +136,7 @@ const DoctorDashboard = () => {
               <div className="p-10 rounded-[3rem] bg-white dark:bg-[#151921] border border-slate-100 dark:border-white/10 shadow-premium">
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 bg-royal-dark rounded-2xl flex items-center justify-center text-tech-turquoise shadow-lg">
+                    <div className="w-12 h-12 bg-royal-dark dark:bg-white/10 rounded-2xl flex items-center justify-center text-tech-turquoise shadow-lg border border-white/5">
                       <History size={24} />
                     </div>
                     <h3 className="text-2xl font-black text-royal-dark dark:text-white tracking-tighter">Clinical Intelligence</h3>
@@ -145,7 +145,7 @@ const DoctorDashboard = () => {
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-6 mb-8">
-                  <div className="p-8 border border-slate-50 dark:border-white/5 rounded-[2rem] bg-slate-50/50 dark:bg-transparent">
+                  <div className="p-8 border border-slate-50 dark:border-white/5 rounded-[2rem] bg-slate-50 dark:bg-royal-dark/30">
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-3">Diagnosed Condition</p>
                     <p className="font-black text-royal-dark dark:text-white text-2xl tracking-tight">{patients.find(p => p.id === prescription.patientId)?.chronic_disease || 'None'}</p>
                   </div>
@@ -433,7 +433,7 @@ const DoctorDashboard = () => {
     <div className="flex h-screen bg-tech-gray dark:bg-royal-dark overflow-hidden font-sans transition-colors duration-300">
       
       {/* 🧭 PREMIUM SIDEBAR */}
-      <aside className="w-80 bg-white dark:bg-[#0E1116] border-r border-slate-200 dark:border-white/10 flex flex-col p-8 z-30 shadow-2xl">
+      <aside className="w-80 bg-white dark:bg-[#0E1116] border-r border-slate-200 dark:border-white/10 flex flex-col p-8 z-30 shadow-2xl transition-colors duration-300">
          <div className="flex items-center gap-4 mb-12 group cursor-pointer">
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-tech-turquoise to-royal-blue text-white flex items-center justify-center text-2xl font-black shadow-lg group-hover:rotate-12 transition-transform">
               {user?.firstName ? user.firstName[0] : 'D'}

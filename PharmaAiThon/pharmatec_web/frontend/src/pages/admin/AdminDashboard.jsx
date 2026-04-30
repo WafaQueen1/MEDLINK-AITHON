@@ -47,9 +47,9 @@ const AdminDashboard = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#FDFDFD] flex font-sans overflow-hidden">
+    <div className="min-h-screen bg-tech-gray dark:bg-royal-dark flex font-sans overflow-hidden transition-colors duration-500">
       {/* Admin Power Sidebar */}
-      <aside className="w-80 bg-royal-dark text-white flex flex-col p-10 relative z-20 shadow-2xl overflow-hidden">
+      <aside className="w-80 bg-white dark:bg-royal-dark text-royal-dark dark:text-white flex flex-col p-10 relative z-20 shadow-2xl overflow-hidden border-r border-slate-200 dark:border-white/5">
         <div className="absolute top-0 right-0 w-64 h-64 bg-tech-turquoise/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
         
         <div className="flex items-center gap-4 mb-20 relative z-10">
@@ -57,8 +57,8 @@ const AdminDashboard = () => {
             <Shield size={28} className="animate-pulse" />
           </div>
           <div>
-            <span className="text-3xl font-black tracking-tighter block leading-none">MEDLINK</span>
-            <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Admin Power Suite</span>
+            <span className="text-3xl font-black tracking-tighter block leading-none text-royal-dark dark:text-white">MEDLINK</span>
+            <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-1">Admin Power Suite</span>
           </div>
         </div>
 
@@ -91,16 +91,16 @@ const AdminDashboard = () => {
       </aside>
 
       {/* Admin Primary Viewport */}
-      <main className="flex-1 overflow-y-auto p-16 custom-scrollbar relative">
+      <main className="flex-1 overflow-y-auto p-16 custom-scrollbar bg-tech-gray dark:bg-royal-dark transition-colors duration-300">
         <header className="flex justify-between items-start mb-16">
           <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
             <div className="flex items-center gap-3 mb-4">
               <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">مركز حماية البيانات الإدارية</span>
               <div className="w-1.5 h-1.5 rounded-full bg-tech-turquoise animate-ping" />
             </div>
-            <h1 className="text-6xl font-black text-royal-dark tracking-tighter leading-none">
+            <h1 className="text-6xl font-black text-royal-dark dark:text-white tracking-tighter leading-none">
               Control <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-royal-dark via-royal-green to-tech-turquoise">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-royal-dark dark:from-white via-royal-green to-tech-turquoise uppercase">
                 Dashboard
               </span>
             </h1>

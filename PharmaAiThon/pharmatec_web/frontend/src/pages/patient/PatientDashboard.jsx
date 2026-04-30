@@ -176,17 +176,17 @@ const PatientDashboard = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FDFDFD] dark:bg-royal-dark flex font-sans overflow-hidden transition-colors duration-700">
+    <div className="min-h-screen bg-tech-gray dark:bg-royal-dark flex font-sans overflow-hidden transition-colors duration-700">
       {/* Sidebar - Unified Navbar */}
-      <aside className="w-80 bg-royal-dark text-white flex flex-col p-10 relative z-20 shadow-2xl overflow-hidden border-r border-white/5">
+      <aside className="w-80 bg-white dark:bg-[#0E1116] text-royal-dark dark:text-white flex flex-col p-10 relative z-20 shadow-2xl overflow-hidden border-r border-slate-200 dark:border-white/5">
         <div className="absolute top-0 right-0 w-64 h-64 bg-royal-green/10 blur-[100px] rounded-full -translate-y-1/2 translate-x-1/2" />
         <div className="flex items-center gap-4 mb-20 relative z-10">
           <div className="w-12 h-12 bg-royal-green rounded-2xl flex items-center justify-center text-white shadow-2xl shadow-royal-green/30">
             <HeartPulse size={28} className="animate-pulse" />
           </div>
           <div>
-            <span className="text-3xl font-black tracking-tighter block leading-none text-white">MEDLINK</span>
-            <span className="text-[9px] font-bold text-slate-500 uppercase tracking-widest mt-1">Patient Portal v2.0</span>
+            <span className="text-3xl font-black tracking-tighter block leading-none text-royal-dark dark:text-white">MEDLINK</span>
+            <span className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-1">Patient Portal v2.0</span>
           </div>
         </div>
 
@@ -201,7 +201,7 @@ const PatientDashboard = () => {
             <button
               key={link.id}
               onClick={() => setActiveTab(link.id)}
-              className={`w-full flex items-center gap-5 px-7 py-5 rounded-[2rem] font-black text-[11px] uppercase tracking-widest transition-all duration-500 group ${activeTab === link.id ? 'bg-royal-green text-white shadow-3xl shadow-royal-green/30' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+              className={`w-full flex items-center gap-5 px-7 py-5 rounded-[2rem] font-black text-[11px] uppercase tracking-widest transition-all duration-500 group ${activeTab === link.id ? 'bg-royal-green text-white shadow-3xl shadow-royal-green/30' : 'text-slate-400 hover:bg-royal-green/5 dark:hover:bg-white/5 dark:hover:text-white'}`}
             >
               <span className={`transition-transform group-hover:scale-110 ${activeTab === link.id ? 'text-white' : 'text-royal-green/50'}`}>
                 {React.cloneElement(link.icon, { size: 22 })}

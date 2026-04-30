@@ -10,12 +10,12 @@
 }
 
 body {
-  @apply bg-tech-gray text-slate-800 font-sans antialiased overflow-x-hidden;
+  @apply bg-tech-gray text-slate-800 font-sans antialiased overflow-x-hidden dark:bg-royal-dark dark:text-slate-200 transition-colors duration-300;
 }
 
 @layer components {
   .glass {
-    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-glass;
+    @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-glass dark:bg-royal-dark/50 dark:border-white/5;
   }
 
   .btn-royal {
@@ -25,16 +25,16 @@ body {
 
   .btn-outline {
     @apply border-2 border-royal-dark text-royal-dark px-8 py-3 rounded-2xl font-bold
-           hover:bg-royal-dark hover:text-white transition-all active:scale-95;
+           hover:bg-royal-dark hover:text-white transition-all active:scale-95 dark:border-tech-turquoise dark:text-tech-turquoise dark:hover:bg-tech-turquoise dark:hover:text-royal-dark;
   }
 
   .input-field {
     @apply w-full bg-white border border-slate-200 px-6 py-4 rounded-2xl outline-none
-           focus:border-tech-turquoise focus:ring-4 focus:ring-tech-turquoise/10 transition-all;
+           focus:border-tech-turquoise focus:ring-4 focus:ring-tech-turquoise/10 transition-all dark:bg-white/5 dark:border-white/10 dark:text-white;
   }
 
   .card-premium {
-    @apply bg-white rounded-3xl p-8 border border-slate-100 shadow-premium hover:border-tech-turquoise/30 transition-all;
+    @apply bg-white rounded-3xl p-8 border border-slate-100 shadow-premium hover:border-tech-turquoise/30 transition-all dark:bg-white/5 dark:border-white/10 dark:shadow-none;
   }
 }
 
